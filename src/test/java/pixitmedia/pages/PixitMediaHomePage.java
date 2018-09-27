@@ -15,6 +15,7 @@ public class PixitMediaHomePage {
     private String menuItemLocator = "nav>ul>li>a>span";
     private String productLinkLocator = "div.elementor-container a";
     private String dataSheetButtonLocator = "div.elementor-button-wrapper a span span";
+    private String submitSuccessfulLocator = "div.frm_message p";
 
     public void select(String menuItemText) {
         ElementsCollection menuItems = $$(By.cssSelector("nav > ul > li > a > span"));
@@ -60,5 +61,6 @@ public class PixitMediaHomePage {
 
     public void submit() {
         $("button.frm_button_submit").click();
+        $(By.cssSelector(submitSuccessfulLocator)).shouldHave(text("Your responses were successfully submitted. Thank you!"));
     }
 }
